@@ -1,98 +1,55 @@
-🌐 Portfólio – Leonardo Marino Scarparo Silva
-Meu portfólio pessoal, desenvolvido para apresentar minhas habilidades, projetos e informações de contato de forma moderna, responsiva e profissional.
+## 🌐 Portfólio Pessoal – Leonardo Marino Scarparo Silva
+Um portfólio moderno e responsivo desenvolvido para apresentar minhas habilidades, projetos e informações de contato de forma profissional e atraente.
 
-🚀 Começando
-Estas instruções ajudarão você a obter uma cópia do projeto funcionando localmente para desenvolvimento e testes.
 
-Consulte Implantação para ver como colocar o projeto online.
+## 📋 Sobre o Projeto
+Este projeto foi criado para centralizar e apresentar minhas informações profissionais como Desenvolvedor Web. O site contém seções dedicadas a apresentação pessoal, projetos, habilidades técnicas e formulário de contato.
 
-📋 Pré-requisitos
-Você precisará ter instalado:
+## ✨ Funcionalidades
+  -Design Responsivo – Totalmente adaptado para dispositivos móveis, tablets e desktops.
+  
+  -Seção "Sobre Mim" – Apresenta minha trajetória e objetivos na área de tecnologia.
+  
+  -Listagem de Projetos – Portfólio com links e descrições de projetos já desenvolvidos.
+  
+  -Seção de Habilidades – Tecnologias e ferramentas que domino.
+  
+  -Formulário de Contato – Permite que visitantes entrem em contato diretamente.
+  
+  -Tema Escuro – Interface moderna e agradável com cores contrastantes.
+  
 
-scss
-Copiar
-Editar
-Node.js (versão 18 ou superior)
-npm ou yarn
-Git
-🔧 Instalação
-Passo a passo para rodar o projeto localmente:
+## 🛠 Tecnologias Utilizadas
+  -HTML5
 
-bash
-Copiar
-Editar
-# Clone este repositório
-git clone https://github.com/seuusuario/seu-repositorio.git
+  -CSS3
 
-# Acesse a pasta do projeto
-cd seu-repositorio
+  -JavaScript
 
-# Instale as dependências
-npm install
+## 📌 Melhorias Futuras
+  -Adicionar animações de entrada nas seções.
 
-# Inicie o servidor local
-npm start
-Depois disso, o projeto estará disponível em:
+  -Implementar integração com banco de dados para formulários de contato.
 
-arduino
-Copiar
-Editar
-http://localhost:3000
-⚙️ Executando os testes
-🔩 Testes de ponta a ponta
-Estes testes verificam a navegação, formulários e comportamento geral do site.
+  -Criar um painel administrativo para gerenciar projetos.
 
-bash
-Copiar
-Editar
-npm run test:e2e
-⌨️ Testes de estilo de código
-Garantem que o código segue o padrão definido (Lint):
+  -MELHORAR O FORMULÁRIO DE CONTATO(NÃO ESTÁ EM FUNCIONAMENTO AINDA)
 
-bash
-Copiar
-Editar
-npm run lint
-📦 Implantação
-Para colocar o site no ar usando o Vercel:
 
-bash
-Copiar
-Editar
-# Instale a CLI do Vercel (opcional)
-npm install -g vercel
+## 📞 Contato
+  -Email: marinoleo51@gmail.com
 
-# Deploy
-vercel
-Ou faça upload pelo painel da Vercel.
+  -Telefone: +55 (43) 996969040
 
-🛠️ Construído com
-React.js – Biblioteca para interface
+  -Localização: Cornélio Procópio, PR - Brasil
 
-Vite – Build rápido
+  -LinkedIn: https://www.linkedin.com/in/leonardomarinoss/
 
-Tailwind CSS – Estilização
+  -GitHub: https://github.com/Marinoleo96351
 
-EmailJS – Envio de mensagens pelo formulário
+## 📌 Desenvolvido por Leonardo Marino Scarparo Silva.
 
-Vercel – Hospedagem
 
-🖇️ Colaborando
-Sinta-se à vontade para abrir issues e pull requests para melhorias.
 
-📌 Versão
-Usamos SemVer para controle de versão.
-As versões estão disponíveis nas tags do repositório.
 
-✒️ Autor
-Leonardo Marino Scarparo Silva – Desenvolvimento e Design – GitHub | LinkedIn
 
-📄 Licença
-Este projeto está sob licença MIT – veja o arquivo LICENSE.md para mais detalhes.
-
-🎁 Agradecimentos
-A todos que apoiaram minha jornada de desenvolvedor 💙
-
-Ao café, sem o qual esse portfólio não existiria ☕
-
-À comunidade dev, por compartilhar conhecimento 📢
