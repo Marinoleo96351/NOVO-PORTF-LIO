@@ -1,51 +1,98 @@
-Claro, Marino! Baseado nas imagens do seu incrível portfólio e nas suas informações, criei uma proposta de README.md para você usar no seu projeto no GitHub.
+🌐 Portfólio – Leonardo Marino Scarparo Silva
+Meu portfólio pessoal, desenvolvido para apresentar minhas habilidades, projetos e informações de contato de forma moderna, responsiva e profissional.
 
-Este README foi pensado para ser profissional, completo e destacar os pontos fortes do seu trabalho, alinhando-se com seu objetivo de se tornar um desenvolvedor sênior.
+🚀 Começando
+Estas instruções ajudarão você a obter uma cópia do projeto funcionando localmente para desenvolvimento e testes.
 
-Portfólio Pessoal | Leonardo Marino
-📄 Descrição
-Bem-vindo ao repositório do meu portfólio pessoal! Este projeto é o meu cartão de visitas digital, um espaço onde apresento minha jornada como desenvolvedor, minhas habilidades e os projetos nos quais tenho trabalhado. Ele foi criado não apenas para exibir meu trabalho, mas também como um reflexo da minha paixão por criar soluções digitais incríveis e memoráveis.
+Consulte Implantação para ver como colocar o projeto online.
 
-O layout foi cuidadosamente pensado com foco em UI/UX, buscando oferecer uma experiência de usuário limpa, intuitiva e agradável.
+📋 Pré-requisitos
+Você precisará ter instalado:
 
-🔗 Veja o projeto online
-✨ Visão Geral
-🚀 Funcionalidades
-O portfólio está estruturado nas seguintes seções:
+scss
+Copiar
+Editar
+Node.js (versão 18 ou superior)
+npm ou yarn
+Git
+🔧 Instalação
+Passo a passo para rodar o projeto localmente:
 
-Início: Uma apresentação impactante com meu nome e minha paixão pelo desenvolvimento.
+bash
+Copiar
+Editar
+# Clone este repositório
+git clone https://github.com/seuusuario/seu-repositorio.git
 
-Sobre Mim: Um resumo sobre minha trajetória, meus objetivos como desenvolvedor Full Stack e minha motivação.
+# Acesse a pasta do projeto
+cd seu-repositorio
 
-Projetos: Uma galeria para exibir os projetos que desenvolvi, com links e tecnologias utilizadas.
+# Instale as dependências
+npm install
 
-Habilidades: Uma lista visual das tecnologias e competências que domino, incluindo Front-end, Back-end e UI/UX.
+# Inicie o servidor local
+npm start
+Depois disso, o projeto estará disponível em:
 
-Contato: Um formulário funcional para que visitantes possam entrar em contato diretamente.
+arduino
+Copiar
+Editar
+http://localhost:3000
+⚙️ Executando os testes
+🔩 Testes de ponta a ponta
+Estes testes verificam a navegação, formulários e comportamento geral do site.
 
-🌓 Tema Claro/Escuro: Um seletor para alternar entre os modos de visualização, melhorando a experiência do usuário.
+bash
+Copiar
+Editar
+npm run test:e2e
+⌨️ Testes de estilo de código
+Garantem que o código segue o padrão definido (Lint):
 
-📱 Design Responsivo: Totalmente adaptado para uma visualização perfeita em qualquer dispositivo, seja desktop, tablet ou mobile.
+bash
+Copiar
+Editar
+npm run lint
+📦 Implantação
+Para colocar o site no ar usando o Vercel:
 
-🛠️ Tecnologias Utilizadas
-Este projeto foi construído utilizando as tecnologias mais modernas do ecossistema de desenvolvimento web:
+bash
+Copiar
+Editar
+# Instale a CLI do Vercel (opcional)
+npm install -g vercel
 
-Front-End:
+# Deploy
+vercel
+Ou faça upload pelo painel da Vercel.
 
-React: Biblioteca principal para a construção da interface de usuário.
+🛠️ Construído com
+React.js – Biblioteca para interface
 
-HTML5: Estrutura semântica do conteúdo.
+Vite – Build rápido
 
-CSS3: Estilização, layouts e animações.
+Tailwind CSS – Estilização
 
-Back-End (para o formulário de contato):
+EmailJS – Envio de mensagens pelo formulário
 
-Node.js: Ambiente de execução para o servidor que gerencia o envio de e-mails.
+Vercel – Hospedagem
 
-Design e UX:
+🖇️ Colaborando
+Sinta-se à vontade para abrir issues e pull requests para melhorias.
 
-UI/UX: Foco na experiência do usuário e design de interface.
+📌 Versão
+Usamos SemVer para controle de versão.
+As versões estão disponíveis nas tags do repositório.
 
-(Opcional: se usou Figma, adicione aqui) Figma: Ferramenta utilizada para o design e prototipação do layout.
+✒️ Autor
+Leonardo Marino Scarparo Silva – Desenvolvimento e Design – GitHub | LinkedIn
 
+📄 Licença
+Este projeto está sob licença MIT – veja o arquivo LICENSE.md para mais detalhes.
 
+🎁 Agradecimentos
+A todos que apoiaram minha jornada de desenvolvedor 💙
+
+Ao café, sem o qual esse portfólio não existiria ☕
+
+À comunidade dev, por compartilhar conhecimento 📢
