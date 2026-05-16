@@ -1,160 +1,175 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Toggle de tema claro/escuro
+document.addEventListener('DOMContentLoaded', function () {
+
+    // ========== Tema claro/escuro ==========
     const themeToggle = document.getElementById('themeToggle');
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-    
-    // Verificar preferência do sistema ou armazenamento local
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme === 'light' || (!currentTheme && !prefersDarkScheme.matches)) {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const savedTheme = localStorage.getItem('theme');
+
+    if (savedTheme === 'light' || (!savedTheme && !prefersDark.matches)) {
         document.body.classList.add('light-mode');
     }
-    
-    // Alternar tema
-    themeToggle.addEventListener('click', function() {
-        document.body.classList.toggle('light-mode');
-        const theme = document.body.classList.contains('light-mode') ? 'light' : 'dark';
-        localStorage.setItem('theme', theme);
-    });
-    
-    // Animações ao rolar
-    const animateOnScrollElements = document.querySelectorAll('.animate-on-scroll');
-    
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function () {
+            document.body.classList.toggle('light-mode');
+            const theme = document.body.classList.contains('light-mode') ? 'light' : 'dark';
+            localStorage.setItem('theme', theme);
+        });
+    }
+
+    // ========== Menu hambúrguer (mobile) ==========
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function () {
+            navLinks.classList.toggle('open');
+            const icon = hamburger.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Fechar menu ao clicar em link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function () {
+                navLinks.classList.remove('open');
+                const icon = hamburger.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            });
+        });
+    }
+
+    // ========== Animações ao rolar ==========
+    const scrollElements = document.querySelectorAll('.animate-on-scroll');
+
     function checkScroll() {
-        animateOnScrollElements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (elementTop < windowHeight - 100) {
-                element.classList.add('animated');
-                
-                // Se for uma barra de habilidades, animar
-                if (element.querySelector('.skill-level')) {
-                    animateSkillBars(element);
-                }
+        const windowHeight = window.innerHeight;
+
+        scrollElements.forEach(el => {
+            const top = el.getBoundingClientRect().top;
+            if (top < windowHeight - 80) {
+                el.classList.add('animated');
+
+                const skillBars = el.querySelectorAll('.skill-level');
+                skillBars.forEach(bar => {
+                    const level = bar.getAttribute('data-level');
+                    bar.style.width = level + '%';
+                });
             }
         });
-        
-        // Botão "voltar ao topo"
+
+        // Botão voltar ao topo
         const backToTop = document.querySelector('.back-to-top');
-        if (window.pageYOffset > 300) {
-            backToTop.classList.add('visible');
-        } else {
-            backToTop.classList.remove('visible');
+        if (backToTop) {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
         }
     }
-    
-    window.addEventListener('scroll', checkScroll);
-    checkScroll(); // Verificar na carga inicial
-    
-    // Animação dos números estatísticos
+
+    window.addEventListener('scroll', checkScroll, { passive: true });
+    checkScroll();
+
+    // ========== Contador de estatísticas ==========
     const statNumbers = document.querySelectorAll('.stat-number');
-    
+
     function animateStats() {
         statNumbers.forEach(stat => {
-            const target = parseInt(stat.getAttribute('data-count'));
+            const target = parseInt(stat.getAttribute('data-count'), 10);
+            if (target === 0) return;
+
             let current = 0;
-            const increment = target / 50; // Controla a velocidade da animação
-            
+            const duration = 1500;
+            const step = target / (duration / 20);
+
             const timer = setInterval(() => {
-                current += increment;
+                current += step;
                 if (current >= target) {
-                    clearInterval(timer);
                     current = target;
+                    clearInterval(timer);
                 }
                 stat.textContent = Math.round(current);
             }, 20);
         });
     }
-    
-    // Animação das barras de habilidades
-    function animateSkillBars(container) {
-        const skillBars = container.querySelectorAll('.skill-level');
-        skillBars.forEach(bar => {
-            const level = bar.getAttribute('data-level');
-            bar.style.width = '0';
-            setTimeout(() => {
-                bar.style.width = `${level}%`;
-            }, 100);
-        });
-    }
-    
-    // Iniciar animação dos stats quando a seção for visível
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateStats();
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-    
+
     const aboutSection = document.querySelector('#sobre');
-    if (aboutSection) {
+    if (aboutSection && statNumbers.length > 0) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.4 });
+
         observer.observe(aboutSection);
     }
-    
-    // Formulário de contato
+
+    // ========== Formulário de contato ==========
     const contactForm = document.getElementById('contactForm');
+
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            
-            const formData = new FormData(contactForm);
+
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const formMessage = document.getElementById('formMessage');
-            
+
+            // Validação básica
+            const nome = contactForm.querySelector('[name="name"]');
+            const email = contactForm.querySelector('[name="email"]');
+            const mensagem = contactForm.querySelector('[name="message"]');
+
+            if (!nome.value.trim() || !email.value.trim() || !mensagem.value.trim()) {
+                showFormMessage(formMessage, 'Por favor, preencha todos os campos obrigatórios.', 'error');
+                return;
+            }
+
             submitBtn.classList.add('loading');
-            
-            // Simulação de envio (substitua por código real de envio)
-            setTimeout(() => {
-                submitBtn.classList.remove('loading');
-                formMessage.textContent = 'Mensagem enviada com sucesso!';
-                formMessage.classList.add('success');
-                formMessage.style.display = 'block';
-                contactForm.reset();
-                
-                setTimeout(() => {
-                    formMessage.style.display = 'none';
-                }, 5000);
-            }, 1500);
-            
-            // Para envio real usando FormSubmit.co (descomente e substitua pelo seu email)
-            /*
-            fetch('https://formsubmit.co/ajax/seu-email@exemplo.com', {
+            submitBtn.disabled = true;
+
+            const formData = new FormData(contactForm);
+            // Campo oculto para identificar a origem
+            formData.append('_subject', 'Nova mensagem do portfólio!');
+
+            fetch('https://formsubmit.co/ajax/marinoleo51@gmail.com', {
                 method: 'POST',
+                headers: { 'Accept': 'application/json' },
                 body: formData
             })
-            .then(response => response.json())
-            .then(data => {
-                submitBtn.classList.remove('loading');
-                formMessage.textContent = 'Mensagem enviada com sucesso!';
-                formMessage.classList.add('success');
-                formMessage.style.display = 'block';
-                contactForm.reset();
-                
-                setTimeout(() => {
-                    formMessage.style.display = 'none';
-                }, 5000);
-            })
-            .catch(error => {
-                submitBtn.classList.remove('loading');
-                formMessage.textContent = 'Erro ao enviar mensagem. Tente novamente.';
-                formMessage.classList.add('error');
-                formMessage.style.display = 'block';
-            });
-            */
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success === 'true' || data.success === true) {
+                        window.location.href = 'obrigado.html';
+                    } else {
+                        throw new Error('Erro no envio');
+                    }
+                })
+                .catch(() => {
+                    submitBtn.classList.remove('loading');
+                    submitBtn.disabled = false;
+                    showFormMessage(formMessage, 'Erro ao enviar mensagem. Tente novamente ou envie um e-mail direto para marinoleo51@gmail.com', 'error');
+                });
         });
     }
-    
-    // Botão "voltar ao topo"
+
+    function showFormMessage(el, text, type) {
+        el.textContent = text;
+        el.className = 'form-message ' + type;
+    }
+
+    // ========== Botão voltar ao topo (clique suave) ==========
     const backToTop = document.querySelector('.back-to-top');
     if (backToTop) {
-        backToTop.addEventListener('click', function(e) {
+        backToTop.addEventListener('click', function (e) {
             e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
+
 });

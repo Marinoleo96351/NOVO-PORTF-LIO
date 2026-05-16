@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | Leonardo Marino</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .contact-page-hero {
+            background: linear-gradient(135deg, var(--dark-secondary), var(--dark-primary));
+            text-align: center;
+            padding: 5rem 2rem 4rem;
+        }
+
+        .contact-page-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-page-hero p {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .contact-page-section {
+            padding: 5rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .contact-page-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.6fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .contact-page-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-page-hero h1 {
+                font-size: 2rem;
+            }
+        }
+
+        .contact-side-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px var(--shadow-color);
+        }
+
+        .contact-side-card h2 {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .info-item .icon-wrap {
+            width: 42px;
+            height: 42px;
+            background: rgba(187, 134, 252, 0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .info-item .icon-wrap i {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+        }
+
+        .info-item .info-text strong {
+            display: block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            margin-bottom: 0.3rem;
+        }
+
+        .info-item .info-text span {
+            font-size: 1rem;
+        }
+
+        .contact-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        .contact-social a {
+            width: 44px;
+            height: 44px;
+            background: rgba(187, 134, 252, 0.1);
+            border: 1px solid rgba(187, 134, 252, 0.3);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .contact-social a:hover {
+            background: var(--accent-color);
+            color: var(--dark-primary);
+            transform: translateY(-3px);
+        }
+
+        .form-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px var(--shadow-color);
+        }
+
+        .form-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 480px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .availability-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(46, 204, 113, 0.15);
+            border: 1px solid rgba(46, 204, 113, 0.4);
+            color: #2ecc71;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 2rem;
+        }
+
+        .availability-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: #2ecc71;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="theme-toggle-container">
+        <button id="themeToggle" class="theme-toggle" aria-label="Alternar tema">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+        </button>
+    </div>
+
+    <header>
+        <h1>Leonardo Marino Scarparo Silva</h1>
+        <p>Desenvolvedor | Designer | Criativo</p>
+    </header>
+
+    <nav>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html#inicio">Início</a>
+            <a href="index.html#sobre">Sobre</a>
+            <a href="index.html#projetos">Projetos</a>
+            <a href="index.html#habilidades">Habilidades</a>
+            <a href="contato.html" class="nav-active">Contato</a>
+        </div>
+    </nav>
+
+    <div class="contact-page-hero">
+        <h1>Vamos <span class="highlight">Conversar</span></h1>
+        <p>Tem um projeto em mente ou quer bater um papo? Envie uma mensagem e responderei em breve!</p>
+    </div>
+
+    <section class="contact-page-section">
+        <div class="contact-page-grid">
+            <div>
+                <div class="contact-side-card">
+                    <div class="availability-badge">
+                        <div class="dot"></div>
+                        Disponível para projetos
+                    </div>
+                    <h2>Informações de Contato</h2>
+
+                    <div class="info-item">
+                        <div class="icon-wrap"><i class="fas fa-envelope"></i></div>
+                        <div class="info-text">
+                            <strong>E-mail</strong>
+                            <span>marinoleo51@gmail.com</span>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="icon-wrap"><i class="fas fa-phone"></i></div>
+                        <div class="info-text">
+                            <strong>Telefone / WhatsApp</strong>
+                            <span>+55 (43) 99696-9040</span>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="icon-wrap"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="info-text">
+                            <strong>Localização</strong>
+                            <span>Cornélio Procópio, PR - Brasil</span>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="icon-wrap"><i class="fas fa-clock"></i></div>
+                        <div class="info-text">
+                            <strong>Tempo de resposta</strong>
+                            <span>Geralmente em até 24 horas</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-social">
+                        <a href="https://www.linkedin.com/in/leonardomarinoss/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/Marinoleo96351" target="_blank" rel="noopener" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.instagram.com/leo_marino__/" target="_blank" rel="noopener" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-card">
+                <h2>Enviar Mensagem</h2>
+                <form id="contactForm" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nome">Nome *</label>
+                            <input type="text" id="nome" name="name" placeholder="Seu nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail *</label>
+                            <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="assunto">Assunto *</label>
+                        <input type="text" id="assunto" name="subject" placeholder="Sobre o que quer falar?" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem *</label>
+                        <textarea id="mensagem" name="message" placeholder="Escreva sua mensagem aqui..." required style="height: 180px;"></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%; font-size: 1rem;">
+                        <span class="btn-text">
+                            <i class="fas fa-paper-plane" style="margin-right: 0.5rem;"></i> Enviar Mensagem
+                        </span>
+                        <span class="btn-loading">
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </span>
+                    </button>
+                    <div id="formMessage" class="form-message"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>Leonardo Marino</h2>
+                <p>Criando experiências digitais excepcionais</p>
+            </div>
+            <div class="footer-links">
+                <h3>Links Rápidos</h3>
+                <ul>
+                    <li><a href="index.html#inicio">Início</a></li>
+                    <li><a href="index.html#sobre">Sobre</a></li>
+                    <li><a href="index.html#projetos">Projetos</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Leonardo Marino. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" aria-label="Voltar ao topo">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
